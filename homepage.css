@@ -1,0 +1,119 @@
+
+/* The color pallete is not final, the white was just making my eyes hurt*/
+
+body{
+	background-color: #FEFAE0;
+	margin-left: 0;
+	margin-top: 0;
+	font-family: Helvetica;
+}
+
+/* css for nav */
+
+.nav_horizontal{
+	background-color: #283618 ;
+	width: 100vw;
+	position: static;
+	top: 0;
+}
+
+.nav_horizontal a{
+	color: #BC6C25;
+	padding: 10px;
+	text-decoration: none;
+	display: inline-block;
+	width: 15%;
+	text-align: center;
+}
+
+.nav_horizontal a:hover{
+	background-color: #606C38 ;
+	color: #DDA15E ;
+}
+
+/* css for slideshow */
+
+#slideshow1{
+	overflow: hidden;
+	height: 400px;
+	width: 80%;
+	border: solid red;
+	margin-inline: auto;
+}
+
+.slides-wrapper{
+	width: 400%;
+	height: 100%;
+	animation: slideshow 12s infinite;
+}
+
+@keyframes slideshow{
+	0%{margin-left: 0px;}
+	10%{margin-left: 0px;}
+	25%{margin-left: -100%;}
+	35%{margin-left: -100%;}
+	50%{margin-left: -200%;}
+	60%{margin-left: -200%;}
+	75%{margin-left: -300%;}
+	85%{margin-left: -300%;}
+}
+
+.slide{
+	float: left;
+	height: 100%;
+	width: 25%;
+}
+
+.slide:nth-child(1){
+	background-color: lightblue;
+}
+
+.slide:nth-child(2){
+	background-color: pink;
+}
+
+.slide:nth-child(3){
+	background-color: lightgreen;
+}
+
+.slide:nth-child(4){
+	background-color: orange;
+}
+
+.slide-img{
+	width: 100%;
+	height: 100%;
+	opacity: 0.5;
+	position: relative;
+}
+
+.slide-text{
+	position: absolute;
+	bottom: 40%;
+	font-size: 20px;
+}
+/* css for bottom half */
+
+#bottom-half{
+	margin-top: 13%;
+}
+
+.text-blurb{
+	float: right;
+}
+
+
+.img-container{
+	margin-left: 10px;
+	width: 30%;
+	height: 50%;
+	border: 1px solid black;
+	border-radius: 70px;
+
+}
+
+.img-container img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
