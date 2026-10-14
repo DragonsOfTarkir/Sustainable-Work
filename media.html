@@ -3,152 +3,107 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Media | Sustainable Work Lab</title>
-	<meta name="description" content="Videos, statistics, lab updates and reading from the Sustainable Work Lab.">
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="homepage.css">
-	<link rel="stylesheet" href="pages.css">
+	<title>Media | Golden Sustainable Work Lab</title>
+	<link rel="stylesheet" type="text/css" href="homepage.css">
+	<link rel="stylesheet" type="text/css" href="pages.css">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
 
-	<header class="site-header">
-		<div class="wrap bar">
-			<a class="brand" href="homepage.html">
-				<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
-					<circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
-					<circle cx="16" cy="16" r="6" fill="#E2A72E"/>
-				</svg>
-				<span>Sustainable Work Lab</span>
-			</a>
-
-			<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-
-			<nav id="site-nav" class="site-nav" aria-label="Main">
-				<a href="research.html">Research</a>
-				<a href="homepage.html#areas">Research areas</a>
-				<a href="people.html">People</a>
-				<a href="media.html" aria-current="page">Media</a>
-				<a href="surveys.html">Surveys</a>
-				<a class="nav-cta" href="connect.html">Get connected</a>
-			</nav>
+	<!-- navagation bar (same on every page; add pages to href when created) -->
+	<nav class="nav_horizontal" aria-label="Main">
+		<div class="nav-links">
+			<a href="homepage.html">Home</a>
+			<a href="repositories.html">Repositories</a>
+			<a href="get-connected.html">Get Connected</a>
+			<a href="media.html" aria-current="page">Media</a>
+			<a href="contact.html">Contact Lab</a>
+			<a href="surveys.html">Surveys</a>
 		</div>
-	</header>
+		<!-- Penn State logo goes here (see homepage.html) -->
+		<a class="nav-logo" href="https://abington.psu.edu" target="_blank" rel="noopener" aria-label="Penn State Abington">PSU</a>
+	</nav>
 
-	<main id="main">
+	<main id="main" class="wrap">
+		<header class="page-head">
+			<h1>Media</h1>
+			<p>Articles about the lab's work and recordings of talks and interviews.</p>
+		</header>
 
-		<section class="page-hero">
-			<div class="wrap">
-				<h1>Media</h1>
-				<p class="lead">Videos, numbers, updates and reading from the lab.</p>
-			</div>
-		</section>
-
-		<!-- The director chooses what appears here. Every block should be editable from the admin area. -->
-		<section class="page-body">
-			<div class="wrap">
-
-				<div class="group">
-					<h2>Videos</h2>
-					<div class="video-grid">
-					<article class="video">
-						<div class="ph video-frame" role="img" aria-label="Video placeholder"></div>
-						<h3>Video title goes here</h3>
-						<p>One sentence about what this video covers.</p>
-					</article>
-					<article class="video">
-						<div class="ph video-frame" role="img" aria-label="Video placeholder"></div>
-						<h3>Video title goes here</h3>
-						<p>One sentence about what this video covers.</p>
-					</article>
-					<article class="video">
-						<div class="ph video-frame" role="img" aria-label="Video placeholder"></div>
-						<h3>Video title goes here</h3>
-						<p>One sentence about what this video covers.</p>
-					</article>
+		<div class="page-body">
+			<section class="block" aria-labelledby="articles-h">
+				<h2 id="articles-h">Featured articles</h2>
+				<ul class="article-grid">
+				<li class="article">
+					<div class="media-ph" role="img" aria-label="Article image placeholder">Image</div>
+					<div class="article-body">
+						<h3>Title of article</h3>
+						<p class="where">Where it is located (publication or site)</p>
+						<a class="btn btn-tan" href="#">Read the article</a>
+						<span class="sample-tag">Sample entry</span>
 					</div>
-				</div>
-
-				<div class="group">
-					<h2>By the numbers</h2>
-					<ul class="stats">
-						<li><p class="stat-number">[Number]</p><p>What this number measures, in a short phrase.</p></li>
-						<li><p class="stat-number">[Number]</p><p>What this number measures, in a short phrase.</p></li>
-						<li><p class="stat-number">[Number]</p><p>What this number measures, in a short phrase.</p></li>
-					</ul>
-				</div>
-
-				<div class="group two-col">
-					<div>
-						<h2>Lab updates</h2>
-						<ul class="feed">
-						<li>
-							<p class="meta">Date</p>
-							<h3><a href="#">Update headline goes here</a></h3>
-							<p>One or two sentences summarising the update.</p>
-						</li>
-						<li>
-							<p class="meta">Date</p>
-							<h3><a href="#">Update headline goes here</a></h3>
-							<p>One or two sentences summarising the update.</p>
-						</li>
-						<li>
-							<p class="meta">Date</p>
-							<h3><a href="#">Update headline goes here</a></h3>
-							<p>One or two sentences summarising the update.</p>
-						</li>
-						</ul>
+				</li>
+				<li class="article">
+					<div class="media-ph" role="img" aria-label="Article image placeholder">Image</div>
+					<div class="article-body">
+						<h3>Title of article</h3>
+						<p class="where">Where it is located (publication or site)</p>
+						<a class="btn btn-tan" href="#">Read the article</a>
+						<span class="sample-tag">Sample entry</span>
 					</div>
-					<div>
-						<h2>Interesting reads</h2>
-						<ul class="feed">
-							<li>
-								<h3><a href="#">Article or report title goes here</a></h3>
-								<p class="meta">Source name</p>
-							</li>
-							<li>
-								<h3><a href="#">Article or report title goes here</a></h3>
-								<p class="meta">Source name</p>
-							</li>
-							<li>
-								<h3><a href="#">Article or report title goes here</a></h3>
-								<p class="meta">Source name</p>
-							</li>
-						</ul>
-					</div>
-				</div>
+				</li>
+				</ul>
+			</section>
 
-			</div>
-		</section>
+			<section class="block" aria-labelledby="videos-h">
+				<h2 id="videos-h">Videos</h2>
+				<ul class="video-grid">
+				<li class="video">
+					<!-- To show a real video, replace the <div class="video-frame"> contents with:
+					     <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Video title" loading="lazy" allowfullscreen></iframe>
+					     VIDEO_ID is the part after "v=" in the YouTube link. The two YouTube links on the Canva board go here. -->
+					<div class="video-frame media-ph" role="img" aria-label="Video placeholder">Video</div>
+					<h3>Video title</h3>
+				</li>
+				<li class="video">
+					<!-- To show a real video, replace the <div class="video-frame"> contents with:
+					     <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Video title" loading="lazy" allowfullscreen></iframe>
+					     VIDEO_ID is the part after "v=" in the YouTube link. The two YouTube links on the Canva board go here. -->
+					<div class="video-frame media-ph" role="img" aria-label="Video placeholder">Video</div>
+					<h3>Video title</h3>
+				</li>
+				<li class="video">
+					<!-- To show a real video, replace the <div class="video-frame"> contents with:
+					     <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Video title" loading="lazy" allowfullscreen></iframe>
+					     VIDEO_ID is the part after "v=" in the YouTube link. The two YouTube links on the Canva board go here. -->
+					<div class="video-frame media-ph" role="img" aria-label="Video placeholder">Video</div>
+					<h3>Video title</h3>
+				</li>
+				<li class="video">
+					<!-- To show a real video, replace the <div class="video-frame"> contents with:
+					     <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID" title="Video title" loading="lazy" allowfullscreen></iframe>
+					     VIDEO_ID is the part after "v=" in the YouTube link. The two YouTube links on the Canva board go here. -->
+					<div class="video-frame media-ph" role="img" aria-label="Video placeholder">Video</div>
+					<h3>Video title</h3>
+				</li>
+				</ul>
+			</section>
+		</div>
 	</main>
 
 	<footer class="site-footer">
 		<div class="wrap foot">
 			<p>Sustainable Work Lab, Penn State Abington</p>
 			<nav aria-label="Footer">
-				<a href="research.html">Research</a>
-				<a href="people.html">People</a>
+				<a href="homepage.html">Home</a>
+				<a href="repositories.html">Repositories</a>
+				<a href="get-connected.html">Get Connected</a>
 				<a href="media.html">Media</a>
+				<a href="contact.html">Contact Lab</a>
 				<a href="surveys.html">Surveys</a>
-				<a href="contact.html">Contact</a>
 			</nav>
 		</div>
 	</footer>
 
-	<script>
-		// Mobile menu toggle
-		(function () {
-			var btn = document.querySelector('.menu-btn');
-			var nav = document.getElementById('site-nav');
-			btn.addEventListener('click', function () {
-				var open = btn.getAttribute('aria-expanded') === 'true';
-				btn.setAttribute('aria-expanded', String(!open));
-				nav.classList.toggle('is-open', !open);
-			});
-		})();
-	</script>
 </body>
 </html>

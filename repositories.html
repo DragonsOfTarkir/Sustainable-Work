@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Repositories | Golden Sustainable Work Lab</title>
+	<link rel="stylesheet" type="text/css" href="homepage.css">
+	<link rel="stylesheet" type="text/css" href="pages.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<!-- navagation bar (same on every page; add pages to href when created) -->
+	<nav class="nav_horizontal" aria-label="Main">
+		<div class="nav-links">
+			<a href="homepage.html">Home</a>
+			<a href="repositories.html" aria-current="page">Repositories</a>
+			<a href="get-connected.html">Get Connected</a>
+			<a href="media.html">Media</a>
+			<a href="contact.html">Contact Lab</a>
+			<a href="surveys.html">Surveys</a>
+		</div>
+		<!-- Penn State logo goes here (see homepage.html) -->
+		<a class="nav-logo" href="https://abington.psu.edu" target="_blank" rel="noopener" aria-label="Penn State Abington">PSU</a>
+	</nav>
+
+	<main id="main" class="wrap">
+		<header class="page-head">
+			<h1>Repositories</h1>
+			<p>Search the lab's papers, reports and projects. Use Sort/Filter to narrow the list by topic.</p>
+		</header>
+
+		<div class="page-body">
+			<!-- Wireframe: search bar, Search button, Sort/Filter button, then a list of research entries.
+			     Entries come from publications-data.js. -->
+			<form class="repo-search" id="repo-form" role="search">
+				<label class="sr-only" for="q">Search research by title, author or topic</label>
+				<input id="q" name="q" type="search" placeholder="Search by title, author or topic" autocomplete="off">
+				<button class="btn" type="submit">Search</button>
+				<button class="btn btn-light" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-panel">Sort/Filter</button>
+			</form>
+
+			<div class="filter-panel" id="filter-panel" hidden>
+				<div class="field">
+					<label for="topic">Topic</label>
+					<select id="topic" name="topic">
+						<option value="">All topics</option>
+					</select>
+				</div>
+				<div class="field">
+					<label for="sort">Sort by</label>
+					<select id="sort" name="sort">
+						<option value="newest">Newest first</option>
+						<option value="oldest">Oldest first</option>
+						<option value="title">Title, A to Z</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="result-line">
+				<p id="count" aria-live="polite"></p>
+				<button class="link-btn" id="clear" type="button" hidden>Clear search and filters</button>
+			</div>
+
+			<ul class="repo-list" id="results"></ul>
+			<p class="empty" id="empty" hidden>No research matches that search. Try fewer words, or clear the filters.</p>
+			<noscript><p class="empty">This page needs JavaScript turned on to search the research list.</p></noscript>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap foot">
+			<p>Sustainable Work Lab, Penn State Abington</p>
+			<nav aria-label="Footer">
+				<a href="homepage.html">Home</a>
+				<a href="repositories.html">Repositories</a>
+				<a href="get-connected.html">Get Connected</a>
+				<a href="media.html">Media</a>
+				<a href="contact.html">Contact Lab</a>
+				<a href="surveys.html">Surveys</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script src="publications-data.js"></script>
+	<script src="repositories.js"></script>
+</body>
+</html>
