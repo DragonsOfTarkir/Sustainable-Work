@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Surveys | Sustainable Work Lab</title>
+	<meta name="description" content="Take part in Sustainable Work Lab surveys.">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="homepage.css">
+	<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="wrap bar">
+			<a class="brand" href="homepage.html">
+				<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+					<circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
+					<circle cx="16" cy="16" r="6" fill="#E2A72E"/>
+				</svg>
+				<span>Sustainable Work Lab</span>
+			</a>
+
+			<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+			<nav id="site-nav" class="site-nav" aria-label="Main">
+				<a href="research.html">Research</a>
+				<a href="homepage.html#areas">Research areas</a>
+				<a href="people.html">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html" aria-current="page">Surveys</a>
+				<a class="nav-cta" href="connect.html">Get connected</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+
+		<section class="page-hero">
+			<div class="wrap">
+				<h1>Surveys</h1>
+				<p class="lead">Take part in the lab's research by completing a survey.</p>
+			</div>
+		</section>
+
+		<!-- TODO(content): confirm with the client what the Surveys page should hold (open surveys, results, or both). -->
+		<section class="page-body">
+			<div class="wrap">
+				<div class="group">
+					<h2>Open surveys</h2>
+					<ul class="areas">
+					<li>
+						<div>
+							<h3>Survey title goes here</h3>
+							<p class="meta">Open until date</p>
+						</div>
+						<div>
+							<p>Two sentences on what the survey asks, who it is for and how long it takes.</p>
+							<a class="btn btn-ink" href="#">Take the survey</a>
+						</div>
+					</li>
+					<li>
+						<div>
+							<h3>Survey title goes here</h3>
+							<p class="meta">Open until date</p>
+						</div>
+						<div>
+							<p>Two sentences on what the survey asks, who it is for and how long it takes.</p>
+							<a class="btn btn-ink" href="#">Take the survey</a>
+						</div>
+					</li>
+					</ul>
+				</div>
+
+				<div class="group">
+					<h2>Past surveys</h2>
+					<p class="empty-note">Closed surveys and their results will be listed here.</p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap foot">
+			<p>Sustainable Work Lab, Penn State Abington</p>
+			<nav aria-label="Footer">
+				<a href="research.html">Research</a>
+				<a href="people.html">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html">Surveys</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script>
+		// Mobile menu toggle
+		(function () {
+			var btn = document.querySelector('.menu-btn');
+			var nav = document.getElementById('site-nav');
+			btn.addEventListener('click', function () {
+				var open = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', String(!open));
+				nav.classList.toggle('is-open', !open);
+			});
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>People | Sustainable Work Lab</title>
+	<meta name="description" content="The director, researchers, students and affiliates of the Sustainable Work Lab.">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="homepage.css">
+	<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="wrap bar">
+			<a class="brand" href="homepage.html">
+				<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+					<circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
+					<circle cx="16" cy="16" r="6" fill="#E2A72E"/>
+				</svg>
+				<span>Sustainable Work Lab</span>
+			</a>
+
+			<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+			<nav id="site-nav" class="site-nav" aria-label="Main">
+				<a href="research.html">Research</a>
+				<a href="homepage.html#areas">Research areas</a>
+				<a href="people.html" aria-current="page">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html">Surveys</a>
+				<a class="nav-cta" href="connect.html">Get connected</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+
+		<section class="page-hero">
+			<div class="wrap">
+				<h1>People</h1>
+				<p class="lead">The director, researchers, students and affiliates who make up the lab.</p>
+			</div>
+		</section>
+
+		<!-- TODO(backend): each group below should be generated from the people table, grouped by role. -->
+		<section class="page-body">
+			<div class="wrap">
+
+				<div class="group">
+					<h2>Director</h2>
+					<article class="profile profile-feature">
+						<img class="avatar" src="director_image.png" alt="Lonnie Golden, Ph.D." width="1024" height="576">
+						<div>
+							<h3>Lonnie Golden, Ph.D.</h3>
+							<p class="role">Lab Director</p>
+							<p class="bio">A short biography goes here, in two or three sentences.</p>
+							<a class="text-link" href="#">View profile</a>
+						</div>
+					</article>
+				</div>
+
+				<div class="group">
+					<h2>Researchers</h2>
+					<div class="people-grid">
+					<article class="profile">
+						<div class="avatar ph" role="img" aria-label="Photo placeholder"></div>
+						<h3>Researcher name</h3>
+						<p class="role">Title or role</p>
+						<p class="bio">One or two sentences about their work with the lab.</p>
+						<a class="text-link" href="#">View profile</a>
+					</article>
+					<article class="profile">
+						<div class="avatar ph" role="img" aria-label="Photo placeholder"></div>
+						<h3>Researcher name</h3>
+						<p class="role">Title or role</p>
+						<p class="bio">One or two sentences about their work with the lab.</p>
+						<a class="text-link" href="#">View profile</a>
+					</article>
+					<article class="profile">
+						<div class="avatar ph" role="img" aria-label="Photo placeholder"></div>
+						<h3>Researcher name</h3>
+						<p class="role">Title or role</p>
+						<p class="bio">One or two sentences about their work with the lab.</p>
+						<a class="text-link" href="#">View profile</a>
+					</article>
+					</div>
+				</div>
+
+				<div class="group">
+					<h2>Students</h2>
+					<div class="people-grid">
+					<article class="profile">
+						<div class="avatar ph" role="img" aria-label="Photo placeholder"></div>
+						<h3>Student name</h3>
+						<p class="role">Program and year</p>
+						<p class="bio">One or two sentences about what they are working on.</p>
+						<a class="text-link" href="#">View profile</a>
+					</article>
+					<article class="profile">
+						<div class="avatar ph" role="img" aria-label="Photo placeholder"></div>
+						<h3>Student name</h3>
+						<p class="role">Program and year</p>
+						<p class="bio">One or two sentences about what they are working on.</p>
+						<a class="text-link" href="#">View profile</a>
+					</article>
+					</div>
+				</div>
+
+				<div class="group">
+					<h2>Affiliates</h2>
+					<div class="people-grid">
+					<article class="profile">
+						<div class="avatar ph" role="img" aria-label="Photo placeholder"></div>
+						<h3>Affiliate name</h3>
+						<p class="role">Institution</p>
+						<p class="bio">One or two sentences about how they collaborate with the lab.</p>
+						<a class="text-link" href="#">View profile</a>
+					</article>
+					</div>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap foot">
+			<p>Sustainable Work Lab, Penn State Abington</p>
+			<nav aria-label="Footer">
+				<a href="research.html">Research</a>
+				<a href="people.html">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html">Surveys</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script>
+		// Mobile menu toggle
+		(function () {
+			var btn = document.querySelector('.menu-btn');
+			var nav = document.getElementById('site-nav');
+			btn.addEventListener('click', function () {
+				var open = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', String(!open));
+				nav.classList.toggle('is-open', !open);
+			});
+		})();
+	</script>
+</body>
+</html>

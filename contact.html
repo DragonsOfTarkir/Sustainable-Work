@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Contact | Sustainable Work Lab</title>
+	<meta name="description" content="Send a message to the director of the Sustainable Work Lab.">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="homepage.css">
+	<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="wrap bar">
+			<a class="brand" href="homepage.html">
+				<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+					<circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
+					<circle cx="16" cy="16" r="6" fill="#E2A72E"/>
+				</svg>
+				<span>Sustainable Work Lab</span>
+			</a>
+
+			<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+			<nav id="site-nav" class="site-nav" aria-label="Main">
+				<a href="research.html">Research</a>
+				<a href="homepage.html#areas">Research areas</a>
+				<a href="people.html">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html">Surveys</a>
+				<a class="nav-cta" href="connect.html">Get connected</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+
+		<section class="page-hero">
+			<div class="wrap">
+				<h1>Contact the lab</h1>
+				<p class="lead">Questions, ideas or partnership proposals go straight to the director.</p>
+			</div>
+		</section>
+
+		<section class="page-body">
+			<div class="wrap contact-layout">
+
+				<!-- TODO(backend): point action at the form handler (email to the director, or a stored inquiry the admin can read). -->
+				<form class="contact-form" action="#" method="post">
+					<div class="field">
+						<label for="name">Your name</label>
+						<input id="name" name="name" type="text" autocomplete="name" required>
+					</div>
+					<div class="field">
+						<label for="email">Email address</label>
+						<input id="email" name="email" type="email" autocomplete="email" required>
+					</div>
+					<div class="field">
+						<label for="org">Organization <span class="optional">(optional)</span></label>
+						<input id="org" name="org" type="text" autocomplete="organization">
+					</div>
+					<div class="field">
+						<label for="role">I am a</label>
+						<select id="role" name="role">
+							<option value="student">Student</option>
+							<option value="researcher">Researcher</option>
+							<option value="journalist">Journalist</option>
+							<option value="partner">Partner organization</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+					<div class="field">
+						<label for="subject">Subject</label>
+						<input id="subject" name="subject" type="text" required>
+					</div>
+					<div class="field">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="7" required></textarea>
+					</div>
+					<div class="form-actions">
+						<button class="btn btn-ink" type="submit">Send message</button>
+					</div>
+					<!-- Fill and reveal after submit. Say what happened and what to do next. -->
+					<p class="form-status" role="status" hidden></p>
+				</form>
+
+				<aside class="contact-aside">
+					<h2>Reach the director</h2>
+					<p class="name">Lonnie Golden, Ph.D.</p>
+					<dl>
+						<dt>Email</dt>
+						<dd>[Email address]</dd>
+						<dt>Location</dt>
+						<dd>[Building and room], Penn State Abington</dd>
+						<dt>Office hours</dt>
+						<dd>[Days and times]</dd>
+					</dl>
+				</aside>
+
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap foot">
+			<p>Sustainable Work Lab, Penn State Abington</p>
+			<nav aria-label="Footer">
+				<a href="research.html">Research</a>
+				<a href="people.html">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html">Surveys</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script>
+		// Mobile menu toggle
+		(function () {
+			var btn = document.querySelector('.menu-btn');
+			var nav = document.getElementById('site-nav');
+			btn.addEventListener('click', function () {
+				var open = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', String(!open));
+				nav.classList.toggle('is-open', !open);
+			});
+		})();
+	</script>
+</body>
+</html>

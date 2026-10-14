@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Research | Sustainable Work Lab</title>
+	<meta name="description" content="Search the Sustainable Work Lab's research by title, author or topic.">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="homepage.css">
+	<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<header class="site-header">
+		<div class="wrap bar">
+			<a class="brand" href="homepage.html">
+				<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+					<circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
+					<circle cx="16" cy="16" r="6" fill="#E2A72E"/>
+				</svg>
+				<span>Sustainable Work Lab</span>
+			</a>
+
+			<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+
+			<nav id="site-nav" class="site-nav" aria-label="Main">
+				<a href="research.html" aria-current="page">Research</a>
+				<a href="homepage.html#areas">Research areas</a>
+				<a href="people.html">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html">Surveys</a>
+				<a class="nav-cta" href="connect.html">Get connected</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+
+		<section class="page-hero">
+			<div class="wrap">
+				<h1>Research</h1>
+				<p class="lead">Search the lab's papers, reports and articles. Filter by topic or author, then read online or download the PDF.</p>
+			</div>
+		</section>
+
+		<section class="page-body">
+			<div class="wrap research-layout">
+
+				<!-- TODO(content): topic and author options should come from the database so new ones appear automatically. -->
+				<aside class="filters">
+					<form action="research.html" method="get" role="search">
+						<div class="field">
+							<label for="q">Search</label>
+							<input id="q" name="q" type="search" placeholder="Title or author" autocomplete="off">
+						</div>
+						<div class="field">
+							<label for="topic">Topic</label>
+							<select id="topic" name="topic">
+								<option value="">All topics</option>
+								<option value="job-quality">Job quality</option>
+								<option value="salutogenic-work-design">Salutogenic work design</option>
+								<option value="working-time">Working time</option>
+							</select>
+						</div>
+						<div class="field">
+							<label for="author">Author</label>
+							<select id="author" name="author">
+								<option value="">All authors</option>
+								<option value="lonnie-golden">Lonnie Golden</option>
+							</select>
+						</div>
+						<div class="field">
+							<label for="sort">Sort by</label>
+							<select id="sort" name="sort">
+								<option value="newest">Newest first</option>
+								<option value="oldest">Oldest first</option>
+								<option value="title">Title, A to Z</option>
+							</select>
+						</div>
+						<div class="form-actions">
+							<button class="btn btn-ink" type="submit">Apply filters</button>
+							<a class="text-link" href="research.html">Clear all</a>
+						</div>
+					</form>
+				</aside>
+
+				<div class="results">
+					<p class="result-count" aria-live="polite">3 placeholder entries</p>
+
+					<!-- TODO(backend): render one <li class="paper"> per database record. Keep this markup as the template. -->
+					<ul class="papers">
+						<li class="paper">
+							<h2 class="paper-title"><a href="#">Paper title goes here</a></h2>
+							<p class="paper-meta">Author name, Author name. Year. Journal or series.</p>
+							<p class="paper-summary">A short summary of two or three sentences describing what the paper finds and why it matters.</p>
+							<ul class="chips" aria-label="Topics">
+								<li><a href="research.html?topic=job-quality">Job quality</a></li>
+							</ul>
+							<p class="paper-links">
+								<a class="text-link" href="#">Download PDF</a>
+								<a class="text-link" href="#">Read on the publisher's site</a>
+							</p>
+						</li>
+						<li class="paper">
+							<h2 class="paper-title"><a href="#">Paper title goes here</a></h2>
+							<p class="paper-meta">Author name, Author name. Year. Journal or series.</p>
+							<p class="paper-summary">A short summary of two or three sentences describing what the paper finds and why it matters.</p>
+							<ul class="chips" aria-label="Topics">
+								<li><a href="research.html?topic=working-time">Working time</a></li>
+							</ul>
+							<p class="paper-links">
+								<a class="text-link" href="#">Download PDF</a>
+							</p>
+						</li>
+						<li class="paper">
+							<h2 class="paper-title"><a href="#">Paper title goes here</a></h2>
+							<p class="paper-meta">Author name, Author name. Year. Journal or series.</p>
+							<p class="paper-summary">A short summary of two or three sentences describing what the paper finds and why it matters.</p>
+							<ul class="chips" aria-label="Topics">
+								<li><a href="research.html?topic=salutogenic-work-design">Salutogenic work design</a></li>
+							</ul>
+							<p class="paper-links">
+								<a class="text-link" href="#">Read on the publisher's site</a>
+							</p>
+						</li>
+					</ul>
+
+					<!-- Show this instead of the list when a search returns nothing. -->
+					<p class="empty" hidden>No research matches those filters. Try a different topic, or clear the search.</p>
+				</div>
+
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap foot">
+			<p>Sustainable Work Lab, Penn State Abington</p>
+			<nav aria-label="Footer">
+				<a href="research.html">Research</a>
+				<a href="people.html">People</a>
+				<a href="media.html">Media</a>
+				<a href="surveys.html">Surveys</a>
+				<a href="contact.html">Contact</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script>
+		// Mobile menu toggle
+		(function () {
+			var btn = document.querySelector('.menu-btn');
+			var nav = document.getElementById('site-nav');
+			btn.addEventListener('click', function () {
+				var open = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', String(!open));
+				nav.classList.toggle('is-open', !open);
+			});
+		})();
+	</script>
+</body>
+</html>

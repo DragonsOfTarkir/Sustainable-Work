@@ -1,0 +1,241 @@
+/* Sustainable Work Lab: styles shared by the inner pages.
+   Load AFTER homepage.css, which defines the colour tokens, header, footer, buttons and .areas list used here. */
+
+/* ---------- Page header ---------- */
+
+.page-hero {
+	background: var(--ink);
+	color: var(--white);
+	padding: clamp(40px, 6vw, 76px) 0 clamp(44px, 6vw, 84px);
+}
+
+.page-hero h1 {
+	font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+	letter-spacing: -0.025em;
+}
+
+.page-hero .lead {
+	margin-top: 16px;
+	max-width: 56ch;
+	font-size: 1.15rem;
+	color: rgba(255, 255, 255, 0.78);
+}
+
+.site-nav a[aria-current="page"] {
+	color: var(--white);
+	background: rgba(255, 255, 255, 0.12);
+}
+.site-nav .nav-cta[aria-current="page"] { background: #F0B845; color: var(--ink); }
+
+.page-body { padding: clamp(40px, 6vw, 80px) 0; }
+
+.page-body h2 {
+	font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+	letter-spacing: -0.015em;
+}
+
+.group + .group { margin-top: clamp(48px, 6vw, 80px); }
+.group > h2 { margin-bottom: 24px; }
+
+.meta { font-size: 0.92rem; color: var(--muted); }
+
+.empty-note,
+.empty { color: var(--muted); }
+
+/* Placeholder boxes: dashed outline marks "replace me". Remove the .ph class once real media is in. */
+.ph {
+	background: #E6EDF4;
+	border: 2px dashed #A9B8C9;
+	border-radius: var(--radius);
+}
+
+/* ---------- Form controls (research filters, contact form) ---------- */
+
+.field { margin-bottom: 18px; }
+
+.field label { display: block; font-weight: 600; margin-bottom: 8px; }
+.field .optional { font-weight: 400; color: var(--muted); }
+
+.field input,
+.field select,
+.field textarea {
+	width: 100%;
+	font: inherit;
+	padding: 12px 14px;
+	background: var(--white);
+	color: var(--text);
+	border: 1.5px solid #AEBBCA;
+	border-radius: 10px;
+}
+
+.field textarea { resize: vertical; min-height: 160px; }
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible {
+	outline: 3px solid var(--gold);
+	outline-offset: 1px;
+	border-color: var(--ink);
+}
+
+.form-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 20px; margin-top: 8px; }
+.form-actions .text-link { margin-top: 0; }
+
+.form-status { margin-top: 16px; font-weight: 500; }
+
+/* ---------- Research ---------- */
+
+.research-layout {
+	display: grid;
+	grid-template-columns: 280px minmax(0, 1fr);
+	gap: clamp(28px, 5vw, 64px);
+	align-items: start;
+}
+
+.filters {
+	position: sticky;
+	top: 92px;
+	background: var(--white);
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	padding: 24px;
+}
+
+.result-count { color: var(--muted); margin-bottom: 8px; }
+
+.papers { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+
+.paper {
+	padding: 28px 0;
+	border-bottom: 1px solid var(--line);
+}
+
+.paper-title { font-size: clamp(1.25rem, 2.2vw, 1.55rem); }
+.paper-title a { text-decoration: none; }
+.paper-title a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; }
+
+.paper-meta { margin-top: 8px; font-size: 0.95rem; color: var(--muted); }
+.paper-summary { margin-top: 12px; max-width: 70ch; }
+.paper .chips { margin-top: 14px; }
+.paper-links { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 24px; }
+
+/* ---------- People ---------- */
+
+.people-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 28px;
+}
+
+.profile h3 { font-size: 1.25rem; margin-top: 14px; }
+.profile .role { color: var(--blue); font-weight: 600; font-size: 0.98rem; margin-top: 2px; }
+.profile .bio { margin-top: 10px; color: var(--muted); font-size: 1rem; }
+
+.profile .avatar {
+	width: 100%;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+}
+
+.profile-feature {
+	display: grid;
+	grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+	gap: clamp(24px, 4vw, 48px);
+	align-items: center;
+}
+
+.profile-feature .avatar {
+	object-position: 28% 0;
+	border-radius: 20px 20px 20px 80px;
+	box-shadow: 10px 10px 0 var(--gold);
+}
+
+.profile-feature h3 { margin-top: 0; font-size: clamp(1.5rem, 2.6vw, 2rem); }
+.profile-feature .bio { max-width: 54ch; font-size: 1.08rem; }
+
+/* ---------- Media ---------- */
+
+.video-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 28px;
+}
+
+.video-frame { aspect-ratio: 16 / 9; }
+.video h3 { font-size: 1.15rem; margin-top: 12px; }
+.video p { margin-top: 4px; color: var(--muted); font-size: 1rem; }
+
+.stats {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 0;
+	border-top: 2px solid var(--ink);
+}
+
+.stats li { padding: 24px 24px 24px 0; border-bottom: 1px solid var(--line); }
+.stat-number { font-family: var(--font-display); font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1; color: var(--blue); margin-bottom: 8px; }
+.stats p:not(.stat-number) { color: var(--muted); max-width: 26ch; }
+
+.two-col {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: clamp(32px, 6vw, 72px);
+}
+
+.two-col > div > h2 { margin-bottom: 8px; }
+
+.feed { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.feed li { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.feed h3 { font-size: 1.15rem; }
+.feed h3 a { text-decoration: none; }
+.feed h3 a:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 4px; }
+.feed p { margin-top: 4px; color: var(--muted); }
+.feed .meta { margin-top: 0; margin-bottom: 4px; }
+
+/* ---------- Surveys (reuses .areas from homepage.css) ---------- */
+
+.areas li .btn { margin-top: 16px; }
+.areas .meta { margin-top: 6px; }
+
+/* ---------- Contact ---------- */
+
+.contact-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+	gap: clamp(32px, 6vw, 80px);
+	align-items: start;
+}
+
+.contact-form {
+	background: var(--white);
+	border: 1px solid var(--line);
+	border-radius: 16px;
+	padding: clamp(22px, 3vw, 36px);
+}
+
+.contact-aside .name {
+	margin-top: 14px;
+	font-family: var(--font-display);
+	font-size: 1.25rem;
+	color: var(--blue);
+}
+
+.contact-aside dl { margin: 20px 0 0; }
+.contact-aside dt { font-weight: 600; margin-top: 16px; }
+.contact-aside dd { margin: 2px 0 0; color: var(--muted); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+	.research-layout,
+	.contact-layout,
+	.two-col { grid-template-columns: 1fr; }
+
+	.filters { position: static; }
+
+	.profile-feature { grid-template-columns: 1fr; }
+	.profile-feature .avatar { max-width: 300px; }
+}
