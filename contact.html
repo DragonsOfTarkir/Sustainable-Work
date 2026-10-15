@@ -3,55 +3,65 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Contact | Sustainable Work Lab</title>
-	<meta name="description" content="Send a message to the director of the Sustainable Work Lab.">
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="homepage.css">
-	<link rel="stylesheet" href="pages.css">
+	<title>Contact Lab | Golden Sustainable Work Lab</title>
+	<link rel="stylesheet" type="text/css" href="homepage.css">
+	<link rel="stylesheet" type="text/css" href="pages.css">
 </head>
 <body>
 	<a class="skip-link" href="#main">Skip to content</a>
 
-	<header class="site-header">
-		<div class="wrap bar">
-			<a class="brand" href="homepage.html">
-				<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
-					<circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-opacity=".45" stroke-width="2"/>
-					<circle cx="16" cy="16" r="6" fill="#E2A72E"/>
-				</svg>
-				<span>Sustainable Work Lab</span>
-			</a>
-
-			<button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-
-			<nav id="site-nav" class="site-nav" aria-label="Main">
-				<a href="research.html">Research</a>
-				<a href="homepage.html#areas">Research areas</a>
-				<a href="people.html">People</a>
-				<a href="media.html">Media</a>
-				<a href="surveys.html">Surveys</a>
-				<a class="nav-cta" href="connect.html">Get connected</a>
-			</nav>
+	<!-- navagation bar (same on every page; add pages to href when created) -->
+	<nav class="nav_horizontal" aria-label="Main">
+		<div class="nav-links">
+			<a href="homepage.html">Home</a>
+			<a href="repositories.html">Repositories</a>
+			<a href="get-connected.html">Get Connected</a>
+			<a href="media.html">Media</a>
+			<a href="contact.html" aria-current="page">Contact Lab</a>
+			<a href="surveys.html">Surveys</a>
 		</div>
-	</header>
+		<!-- Penn State logo goes here (see homepage.html) -->
+		<a class="nav-logo" href="https://abington.psu.edu" target="_blank" rel="noopener" aria-label="Penn State Abington">PSU</a>
+	</nav>
 
-	<main id="main">
+	<main id="main" class="wrap">
+		<header class="page-head">
+			<h1>Contact Lab</h1>
+			<p>Reach Dr. Golden about research, collaboration or press, and meet the people who work with the lab.</p>
+		</header>
 
-		<section class="page-hero">
-			<div class="wrap">
-				<h1>Contact the lab</h1>
-				<p class="lead">Questions, ideas or partnership proposals go straight to the director.</p>
-			</div>
-		</section>
+		<div class="page-body">
+			<!-- Wireframe: photo and ways of contact on the left, a text blurb about Dr. Golden with a resume/CV link on the right. -->
+			<section class="contact-top" aria-label="Contact Dr. Golden">
+				<div class="contact-side">
+					<div class="img-container">
+						<img src="director_image.png" alt="Lonnie Golden, Ph.D.">
+					</div>
+					<div class="card ways">
+						<h2>Ways to contact</h2>
+						<dl>
+							<dt>Email</dt>
+							<dd>[Penn State email address]</dd>
+							<dt>Office</dt>
+							<dd>[Building and room], Penn State Abington</dd>
+							<dt>Office hours</dt>
+							<dd>[Days and times]</dd>
+						</dl>
+					</div>
+				</div>
+				<div class="card about">
+					<h2>Lonnie Golden, Ph.D.</h2>
+					<p>[Short biography goes here: Dr. Golden's role at Penn State Abington, his research interests and his background.]</p>
+					<a class="btn" href="#">Resume / CV</a>
+				</div>
+			</section>
 
-		<section class="page-body">
-			<div class="wrap contact-layout">
-
-				<!-- TODO(backend): point action at the form handler (email to the director, or a stored inquiry the admin can read). -->
-				<form class="contact-form" action="#" method="post">
+			<section class="block" aria-labelledby="request-h">
+				<h2 id="request-h">Send a request</h2>
+				<!-- The proposal says this form should send straight to the director's Penn State email without
+				     showing the address. It is NOT connected yet: the script below only shows a notice.
+				     Wire it to the form handler / backend when that exists. -->
+				<form class="card request" id="request-form" action="#" method="post">
 					<div class="field">
 						<label for="name">Your name</label>
 						<input id="name" name="name" type="text" autocomplete="name" required>
@@ -67,69 +77,73 @@
 					<div class="field">
 						<label for="role">I am a</label>
 						<select id="role" name="role">
-							<option value="student">Student</option>
-							<option value="researcher">Researcher</option>
-							<option value="journalist">Journalist</option>
-							<option value="partner">Partner organization</option>
-							<option value="other">Other</option>
+							<option>Student</option>
+							<option>Researcher</option>
+							<option>Journalist</option>
+							<option>Partner organization</option>
+							<option>Other</option>
 						</select>
 					</div>
 					<div class="field">
-						<label for="subject">Subject</label>
-						<input id="subject" name="subject" type="text" required>
-					</div>
-					<div class="field">
 						<label for="message">Message</label>
-						<textarea id="message" name="message" rows="7" required></textarea>
+						<textarea id="message" name="message" required></textarea>
 					</div>
-					<div class="form-actions">
-						<button class="btn btn-ink" type="submit">Send message</button>
-					</div>
-					<!-- Fill and reveal after submit. Say what happened and what to do next. -->
-					<p class="form-status" role="status" hidden></p>
+					<button class="btn" type="submit">Send request</button>
+					<p class="form-status" id="form-status" role="status" hidden></p>
 				</form>
+			</section>
 
-				<aside class="contact-aside">
-					<h2>Reach the director</h2>
-					<p class="name">Lonnie Golden, Ph.D.</p>
-					<dl>
-						<dt>Email</dt>
-						<dd>[Email address]</dd>
-						<dt>Location</dt>
-						<dd>[Building and room], Penn State Abington</dd>
-						<dt>Office hours</dt>
-						<dd>[Days and times]</dd>
-					</dl>
-				</aside>
-
-			</div>
-		</section>
+			<section class="block" aria-labelledby="people-h">
+				<h2 id="people-h">Collaborators, assistants and other important people</h2>
+				<!-- Wireframe note: needs a photo and info for everyone who works in the lab (or pull from the Penn State site). -->
+				<ul class="people">
+				<li class="person">
+					<div class="avatar media-ph" role="img" aria-label="Photo placeholder">Photo</div>
+					<h3>Name</h3>
+					<p>Position</p>
+				</li>
+				<li class="person">
+					<div class="avatar media-ph" role="img" aria-label="Photo placeholder">Photo</div>
+					<h3>Name</h3>
+					<p>Position</p>
+				</li>
+				<li class="person">
+					<div class="avatar media-ph" role="img" aria-label="Photo placeholder">Photo</div>
+					<h3>Name</h3>
+					<p>Position</p>
+				</li>
+				<li class="person">
+					<div class="avatar media-ph" role="img" aria-label="Photo placeholder">Photo</div>
+					<h3>Name</h3>
+					<p>Position</p>
+				</li>
+				</ul>
+			</section>
+		</div>
 	</main>
 
 	<footer class="site-footer">
 		<div class="wrap foot">
 			<p>Sustainable Work Lab, Penn State Abington</p>
 			<nav aria-label="Footer">
-				<a href="research.html">Research</a>
-				<a href="people.html">People</a>
+				<a href="homepage.html">Home</a>
+				<a href="repositories.html">Repositories</a>
+				<a href="get-connected.html">Get Connected</a>
 				<a href="media.html">Media</a>
+				<a href="contact.html">Contact Lab</a>
 				<a href="surveys.html">Surveys</a>
-				<a href="contact.html">Contact</a>
 			</nav>
 		</div>
 	</footer>
 
 	<script>
-		// Mobile menu toggle
-		(function () {
-			var btn = document.querySelector('.menu-btn');
-			var nav = document.getElementById('site-nav');
-			btn.addEventListener('click', function () {
-				var open = btn.getAttribute('aria-expanded') === 'true';
-				btn.setAttribute('aria-expanded', String(!open));
-				nav.classList.toggle('is-open', !open);
-			});
-		})();
+		// Placeholder until the form is wired to the director's email.
+		document.getElementById('request-form').addEventListener('submit', function (e) {
+			e.preventDefault();
+			var s = document.getElementById('form-status');
+			s.textContent = 'This form is not connected to email yet, so nothing was sent. Please use the contact details above.';
+			s.hidden = false;
+		});
 	</script>
 </body>
 </html>

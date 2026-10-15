@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Get Connected | Golden Sustainable Work Lab</title>
+	<link rel="stylesheet" type="text/css" href="homepage.css">
+	<link rel="stylesheet" type="text/css" href="pages.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<!-- navagation bar (same on every page; add pages to href when created) -->
+	<nav class="nav_horizontal" aria-label="Main">
+		<div class="nav-links">
+			<a href="homepage.html">Home</a>
+			<a href="repositories.html">Repositories</a>
+			<a href="get-connected.html" aria-current="page">Get Connected</a>
+			<a href="media.html">Media</a>
+			<a href="contact.html">Contact Lab</a>
+			<a href="surveys.html">Surveys</a>
+		</div>
+		<!-- Penn State logo goes here (see homepage.html) -->
+		<a class="nav-logo" href="https://abington.psu.edu" target="_blank" rel="noopener" aria-label="Penn State Abington">PSU</a>
+	</nav>
+
+	<main id="main" class="wrap">
+		<header class="page-head">
+			<h1>Get Connected</h1>
+			<p>Talks, conferences and appearances, so you can meet the lab in person or online.</p>
+		</header>
+
+		<div class="page-body">
+			<!-- Wireframe: "Events (Get Connected) page" with Upcoming Events and Past Events grids.
+			     Cards are filled from events-data.js and sorted into upcoming/past by date. -->
+			<section class="block" aria-labelledby="upcoming-h">
+				<h2 id="upcoming-h">Upcoming events</h2>
+				<ul class="event-grid" id="upcoming"></ul>
+				<p class="empty" id="upcoming-empty" hidden>No upcoming events are listed yet. To suggest one, use the <a href="contact.html">contact page</a>.</p>
+			</section>
+
+			<section class="block" aria-labelledby="past-h">
+				<h2 id="past-h">Past events</h2>
+				<ul class="event-grid" id="past"></ul>
+				<p class="empty" id="past-empty" hidden>Past events will be listed here.</p>
+			</section>
+			<noscript><p class="empty">This page needs JavaScript turned on to list events.</p></noscript>
+		</div>
+	</main>
+
+	<footer class="site-footer">
+		<div class="wrap foot">
+			<p>Sustainable Work Lab, Penn State Abington</p>
+			<nav aria-label="Footer">
+				<a href="homepage.html">Home</a>
+				<a href="repositories.html">Repositories</a>
+				<a href="get-connected.html">Get Connected</a>
+				<a href="media.html">Media</a>
+				<a href="contact.html">Contact Lab</a>
+				<a href="surveys.html">Surveys</a>
+			</nav>
+		</div>
+	</footer>
+
+	<script src="events-data.js"></script>
+	<script src="events.js"></script>
+</body>
+</html>
