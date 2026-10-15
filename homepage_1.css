@@ -1,0 +1,289 @@
+
+/* nvm color pallete's final now */
+
+/* generic css stuff, applies to the whole page */
+
+/*
+vocab list:
+clamp - min, preferred, max values
+gap - gaps for containers
+flex-wrap - allows wrapping around containers
+flex - stretching in the container
+align-items - aligns em where you want in the container
+grid-template-columns - size of column lines
+minmax - range between min and max
+*/
+
+*{ 
+	box-sizing: border-box; 
+}
+
+body{
+	background-color: #FEFAE0;
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #283618;
+	line-height: 1.6;
+	font-size: 1.0625rem;
+}
+
+h1, h2{
+	font-family: Georgia, "Times New Roman", serif;
+	line-height: 1.2;
+	margin: 0;
+}
+
+p{
+ margin: 0; 
+}
+
+img{ 
+display: block; 
+max-width: 100%; 
+}
+
+/* css for nav */
+
+.nav_horizontal{
+	background-color: #283618 ;
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 100; /* nav is always on top */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 6px clamp(12px, 3vw, 40px);
+}
+
+.nav-links{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2px;
+}
+
+.nav_horizontal a{
+	color: #FFFDF2;
+	padding: 10px 16px;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	font-weight: 600;
+	font-size: 0.98rem;
+	border-radius: 6px;
+}
+
+.nav_horizontal a:hover{
+	background-color: #606C38 ;
+	color: #FEFAE0 ;
+}
+
+.nav-logo{
+	flex: none;
+	width: 10%;
+	height: 10%;
+	padding: 0;
+	display: grid-lanes;
+	place-items: center;
+}
+
+.nav-logo:hover{ 
+	background-color: #606C38; 
+}
+
+/* css for slideshow */
+
+#slideshow1{
+	position: relative;
+	overflow: hidden;
+	height: 400px;
+	width: 1100px;
+	margin: 28px auto 0;
+	border-radius: 19px;
+}
+
+.slides-wrapper{
+	display: flex;
+	width: 400%;
+	height: 100%;
+	transform: translateX(calc(var(--i, 0) * -25%)); /* the big stretch*/
+	transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* animation for sldies*/
+}
+
+.slide{
+	flex: 0 0 25%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 clamp(60px, 9vw, 120px);
+}
+
+.slide:nth-child(1){
+	background-color: #FFFFFF;
+}
+
+.slide:nth-child(2){
+	background-color: #283618;
+	color: #FEFAE0;
+}
+
+.slide:nth-child(3){
+	background-color: #606C38;
+	color: #FEFAE0;
+}
+
+.slide:nth-child(4){
+	background-color: #DDA15E;
+}
+
+.slide-link{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+	text-decoration: none;
+	color: #283618;
+	text-align: center;
+}
+
+.slide-link:hover{ 
+	text-decoration: underline; 
+text-underline-offset: 5px; 
+}
+
+.slide-img{
+	width: 60%;
+	height: auto;
+	position: relative;
+}
+
+.slide-text{
+	font-family: Georgia, serif;
+	font-size: 1.3rem;
+	color: #283618;
+}
+
+
+.slide-btn{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 44px;
+	height: 44px;
+	border: 0;
+	border-radius: 50%;
+	background: #FEFAE0;
+	color: #283618;
+	font-size: 1.7rem;
+	line-height: 1;
+	cursor: pointer;
+	box-shadow: 0 2px 8px rgba(40, 54, 24, 0.35);
+}
+
+.slide-btn:hover{ 
+	background: #DDA15E; 
+}
+
+.slide-prev{ 
+	left: 14px; 
+}
+
+.slide-next{ 
+	right: 14px; 
+}
+
+.slide-dots{
+	position: absolute;
+	left: 50%;
+	bottom: 14px;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 10px;
+	padding: 7px 12px;
+	border-radius: 999px;
+	background: rgba(40, 54, 24, 0.75);
+}
+
+
+/* css for bottom half */
+
+#bottom-half{
+	width: 1100px;
+	margin: 40px auto 0;
+	padding: 44px 0 64px;
+	border-top: 2px dashed #DDA15E;
+	display: grid;
+	grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+	gap: clamp(28px, 5vw, 64px);
+	align-items: start;
+}
+
+.director{
+	text-align: center;
+}
+
+.text-blurb{
+	background: #FFFDF2;
+	border: 1px solid #E6DBA8;
+	border-radius: 16px;
+	padding: clamp(22px, 3.5vw, 40px);
+}
+
+.text-blurb h2{ 
+	font-size: clamp(1.6rem, 3vw, 2.2rem); 
+}
+.text-blurb p{ 
+	margin-top: 14px; 
+	max-width: 62ch; 
+}
+
+.img-container{
+	margin: 0 auto;
+	width: 70%;
+	height: auto;
+	aspect-ratio: 1;
+	border: 4px solid #DDA15E;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.img-container img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 17% 0;
+}
+
+.director-name{
+	margin-top: 18px;
+	font-family: Georgia, serif;
+	font-size: 1.3rem;
+	font-weight: 700;
+}
+
+.director-role{ 
+	color: #4C5632; 
+	margin-top: 2px; 
+}
+
+/* css for footer */
+
+.site-footer{
+	background: #283618;
+	color: rgba(254, 250, 224, 0.8);
+	font-size: 0.95rem;
+	padding: 28px 0;
+}
+
+.foot{
+	width: 92%;
+	margin-inline: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px 32px;
+}
+

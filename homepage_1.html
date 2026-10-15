@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Golden Sustainable Work Lab</title>
+	<link rel="stylesheet" type="text/css" href="homepage_1.css">
+</head>
+<body>
+	<!-- navagation bar (add pages to href when created) -->
+	<nav class="nav_horizontal">
+		<div class="nav-links">
+			<a href="homepage_1.html">Home</a>
+			<a href="">Repositories</a>
+			<a href="">Get Connected</a>
+			<a href="">Media</a>
+			<a href="">Contact Lab</a>
+			<a href="">Surveys</a>
+		</div>
+		<!-- PSU logo links to Dr. Golden's page on PSUAbington -->
+		<a class="nav-logo" href="https://abington.psu.edu" target="_blank">
+			<img src="penn_state_abington.png"></a>
+	</nav>
+
+	<main>
+		<!-- slideshow -->
+		<div id="slideshow1">
+			<div class="slides-wrapper">
+				<div class="slide" >
+					<a class="slide-link" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=55317" target="_blank">
+						<img class="slide-img" src="ssrn_logo.png">
+						<span class="slide-text">Read Dr. Golden's research papers on SSRN</span>
+					</a>
+				</div>
+				<div class="slide">
+					<!-- slide 2 -->
+					<h1>Slide 2</h1>
+				</div>
+				<div class="slide">
+					<!-- slide 3 -->
+					<h1>Slide 3</h1>
+				</div>
+				<div class="slide">
+					<!-- slide 4 -->
+					<h1>Slide 4</h1>
+				</div>
+			</div>
+
+			<!-- slideshow controls -->
+			<button class="slide-btn slide-prev" type="button">❮</button>
+			<button class="slide-btn slide-next" type="button" >❯</button>
+			<div class="slide-dots"></div>
+		</div>
+
+		<!--bottom half -->
+		<section id="bottom-half">
+			<div class="director">
+				<div class="img-container">
+				<img src="director_image.png" alt="Lonnie Golden, Ph.D.">
+				</div>
+				<p class="director-name">Lonnie Golden, Ph.D.</p>
+				<p class="director-role">Director of the Sustainable Work Lab</p>
+			</div>
+
+
+			<div class="text-blurb">
+				<h2 id="about-heading">About the Sustainable Work Lab</h2>
+				<p>Text blurb about Golden Sustainable Work Lab goes here.</p>
+			</div>
+		</section>
+	</main>
+
+	<!-- footer -->
+	<footer class="site-footer">
+		<div class="foot">
+			<p>Sustainable Work Lab, Penn State Abington, 2026</p>
+		</div>
+	</footer>
+
+	<!-- javascript for the slideshow (what is this nonsense)-->
+	<script>
+	
+		//variables
+		const root = document.getElementById('slideshow1');
+		const wrap = root.querySelector('.slides-wrapper');
+		const slides = Array.from(wrap.children);
+		const dotsBox = root.querySelector('.slide-dots');
+
+		let slideIndex = 0;
+		let timer = null;
+
+		//check if reduce motion is enabled
+		const reduceMotion = window.matchMedia &&
+    	window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		//creates dots
+		const dots = slides.map((slide, index) => {
+		    const dot = document.createElement('button');
+		    dot.type = 'button';
+
+		    dot.addEventListener('click', () => showSlide(index, true));
+
+		    dotsBox.appendChild(dot);
+		    return dot;
+		});
+
+		//shows slides
+		function showSlide(n, byUser = false) {
+		    slideIndex = (n + slides.length) % slides.length;
+
+		    //move slides using translate in css
+		    wrap.style.setProperty('--i', slideIndex);
+
+		    // Highlight the active dot
+		    dots.forEach((dot, index) => {
+		        dot.classList.toggle('active', index === slideIndex);
+		    });
+
+		    if (byUser) startAuto();
+		}
+
+		//next slide
+		function plusSlides(n) {
+		    showSlide(slideIndex + n, true);
+		}
+
+		//automatic slides
+		function startAuto() {
+		    stopAuto();
+
+		    //if reduce motion isn't enabled, do automatic slides
+		    if (!reduceMotion) {
+		        timer = setInterval(() => {
+		            showSlide(slideIndex + 1);
+		        }, 7000);
+		    }
+		}
+
+		//stop automatic slides
+		function stopAuto() {
+		    clearInterval(timer);
+		}
+
+		//move slides on click
+		root.querySelector('.slide-prev').addEventListener('click', () => {plusSlides(-1);});
+
+		root.querySelector('.slide-next').addEventListener('click', () => {plusSlides(1);});
+
+		//pause when mouse is over slideshow
+		root.addEventListener('mouseenter', stopAuto);
+		root.addEventListener('mouseleave', startAuto);
+
+		//start on first slide
+		showSlide(0);
+		startAuto();
+	</script>
+</body>
+</html>
