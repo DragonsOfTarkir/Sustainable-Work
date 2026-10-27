@@ -71,6 +71,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOP
 						date: formatPublicationDate(row.date || row.year || ""),
 						abstract: row.abstract || row.description || "",
 						tags: row.tags || row.topic ? (row.tags || row.topic).split(',').map(function(t){ return t.trim(); }).filter(Boolean) : [],
+						tagField: row.tags ? 'tags' : (row.topic ? 'topic' : 'tags'),
 						keywords: row.keywords ? row.keywords.split(',').map(function(k){ return k.trim(); }).filter(Boolean) : [],
 						url: row.url || "",
 						pdf: row.pdf || "",
@@ -99,6 +100,77 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOP
 			o.value = t;
 			topicEl.appendChild(o);
 		});
+	}
+
+	function availableTags() {
+		var seen = {};
+		data.forEach(function (p) { (p.tags || []).forEach(function (tag) { seen[tag] = true; }); });
+		return Object.keys(seen).sort();
+	}
+
+	function renderTags(p, listElement) {
+		listElement.textContent = '';
+		(p.tags || []).forEach(function (tag) {
+			var item = el('li');
+			var link = el('a', '', tag);
+			link.href = '?topic=' + encodeURIComponent(tag);
+			link.addEventListener('click', function (ev) {
+				ev.preventDefault();
+				topicEl.value = tag;
+				setPanel(true);
+				render();
+			});
+			item.appendChild(link);
+
+			if (isEditModeActive) {
+				var removeButton = el('button', 'tag-remove', '×');
+				removeButton.type = 'button';
+				removeButton.setAttribute('aria-label', 'Remove tag ' + tag);
+				removeButton.addEventListener('click', function () {
+					p.tags = p.tags.filter(function (currentTag) { return currentTag !== tag; });
+					renderTags(p, listElement);
+				});
+				item.appendChild(removeButton);
+			}
+			listElement.appendChild(item);
+		});
+
+		if (isEditModeActive) {
+			var addItem = el('li');
+			var addButton = el('button', 'tag-add', '+');
+			addButton.type = 'button';
+			addButton.setAttribute('aria-label', 'Add a tag');
+			addButton.addEventListener('click', function () {
+				var select = el('select', 'tag-add-select');
+				select.setAttribute('aria-label', 'Choose a tag to add');
+				var placeholder = el('option', '', 'Choose a tag');
+				placeholder.value = '';
+				select.appendChild(placeholder);
+				availableTags().filter(function (tag) {
+					return (p.tags || []).indexOf(tag) === -1;
+				}).forEach(function (tag) {
+					var option = el('option', '', tag);
+					option.value = tag;
+					select.appendChild(option);
+				});
+
+				if (select.options.length === 1) {
+					placeholder.textContent = 'No tags available';
+					placeholder.disabled = true;
+				}
+
+				select.addEventListener('change', function () {
+					if (select.value && (p.tags || []).indexOf(select.value) === -1) {
+						p.tags.push(select.value);
+						renderTags(p, listElement);
+					}
+				});
+				addItem.replaceChild(select, addButton);
+				select.focus();
+			});
+			addItem.appendChild(addButton);
+			listElement.appendChild(addItem);
+		}
 	}
 
 	function checkInitialUrlParams() {
@@ -156,6 +228,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOP
 
 	function card(p) {
 		var li = el('li', 'paper');
+		li._entry = p;
 		
 		var editableAttr = isEditModeActive ? 'true' : 'false';
 		var editStyle = isEditModeActive ? 'background-color: #fffde7; padding: 2px 4px; border-radius: 4px; outline: none;' : '';
@@ -204,21 +277,9 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOP
 		}
 
 		// Tags (Chips)
-		if (p.tags && p.tags.length) {
-			var ul = el('ul', 'chips');
-			p.tags.forEach(function (t) {
-				var item = el('li');
-				var a = el('a', '', t);
-				a.href = '?topic=' + encodeURIComponent(t);
-				a.addEventListener('click', function (ev) {
-					ev.preventDefault();
-					topicEl.value = t;
-					setPanel(true);
-					render();
-				});
-				item.appendChild(a);
-				ul.appendChild(item);
-			});
+		if ((p.tags && p.tags.length) || isEditModeActive) {
+			var ul = el('ul', 'chips repo-tags');
+			renderTags(p, ul);
 			li.appendChild(ul);
 		}
 
@@ -229,7 +290,17 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOP
 			d.href = p.pdf;
 			links.appendChild(d);
 		}
-		if (p.url) {
+		if (isEditModeActive) {
+			var urlLabel = el('label', 'repo-url-label', 'Read online URL');
+			var urlInput = el('input', 'repo-url-input');
+			urlInput.type = 'url';
+			urlInput.value = p.url;
+			urlInput.placeholder = 'https://';
+			urlInput.setAttribute('aria-label', 'Read online URL');
+			urlInput.dataset.key = 'url';
+			urlLabel.appendChild(urlInput);
+			links.appendChild(urlLabel);
+		} else if (p.url) {
 			var r = el('a', '', 'Read online');
 			r.href = p.url;
 			r.target = '_blank';
@@ -277,6 +348,9 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOP
 		editableFields.forEach(function (field) {
 			updatedData[field.dataset.key] = field.textContent.trim();
 		});
+		var urlInput = cardElement.querySelector('.repo-url-input');
+		if (urlInput) { updatedData.url = urlInput.value.trim(); }
+		updatedData[cardElement._entry.tagField] = (cardElement._entry.tags || []).join(', ');
 
 		var payload = {
 			sheet_row_index: sheetRowIndex,

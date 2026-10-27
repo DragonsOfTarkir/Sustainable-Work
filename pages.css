@@ -129,6 +129,34 @@
 .paper .chips a:hover{ background: #EFE6B8; }
 .paper-links{ display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 14px; font-weight: 700; }
 .paper-links a{ text-underline-offset: 4px; }
+.repo-tags{ align-items: center; }
+.repo-tags li{ display: inline-flex; align-items: center; gap: 4px; }
+.tag-remove,
+.tag-add{
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	border: 1px solid var(--olive);
+	border-radius: 50%;
+	background: var(--paper);
+	color: var(--forest);
+	font: inherit;
+	font-weight: 700;
+	line-height: 1;
+	cursor: pointer;
+}
+.tag-remove:hover,
+.tag-add:hover{ background: #EFE6B8; }
+.tag-add-select{ max-width: 190px; font: inherit; }
+.repo-url-label{ display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.repo-url-input{
+	width: min(100%, 440px);
+	font: inherit;
+	font-weight: 400;
+	padding: 5px 8px;
+	border: 1px solid var(--line);
+	border-radius: 4px;
+}
 
 .empty{ color: var(--muted); padding: 24px 0; }
 
