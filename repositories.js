@@ -1,4 +1,3 @@
-// Paste your new Google Apps Script Web App Deployment URL here
 const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOPZ7DiApEI1p3N3penQ-0Hyok2iR57npGuzzrZ4JkDHbWIPQ/exec"; 
 
 (function () {
