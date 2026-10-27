@@ -22,7 +22,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbx36gYdhGNH7UK1cgHU7wOP
 		return e;
 	}
 
-	// 1. DATE CLEANER ENGINE: Translates ugly raw ISO strings to beautiful dates
+	// Translates raw ISO strings to dates
 	function formatPublicationDate(dateStr) {
 		if (!dateStr) return "";
 		
